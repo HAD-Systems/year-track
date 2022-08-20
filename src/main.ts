@@ -4,6 +4,7 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import VueCalendarHeatmap from "vue3-calendar-heatmap";
+import "vue3-calendar-heatmap/dist/style.css";
 
 // import "./assets/main.css";
 
