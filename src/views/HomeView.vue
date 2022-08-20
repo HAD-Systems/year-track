@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheSunburst from "@/components/TheSunburst.vue";
+import TheHeatmap from "@/components/TheHeatmap.vue";
 </script>
 
 <template>
   <main>
-    <TheSunburst />
+    <TheHeatmap />
   </main>
 </template>

@@ -489,7 +489,12 @@ function init() {
     .join("path")
     .attr("fill", (d) => {
       while (d.depth > 1) d = d.parent;
-      return color(d.data.name);
+
+      if (d.data.children.every((child: any) => child.completed)) {
+        return "green";
+      } else {
+        return color(d.data.name);
+      }
     })
     .attr("fill-opacity", (d) =>
       arcVisible(d.current) ? (d.children ? 0.5 : 1) : 0
@@ -569,8 +574,13 @@ function init() {
           return +this.getAttribute("fill-opacity") || arcVisible(d.target);
         })
         .attr("fill", (d) => {
-          while (d.depth > 1) d = d.parent;
-          return color(d.data.name);
+          while (d.depth > 0) d = d.parent;
+          console.log(d.data.name);
+          if (d.data.children.every((child: any) => child.completed)) {
+            return "green";
+          } else {
+            return color(d.data.name);
+          }
         })
         .attr("fill-opacity", (d) =>
           arcVisible(d.target) ? (d.children ? 0.5 : 1) : 0
